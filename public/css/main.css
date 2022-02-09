@@ -1,0 +1,63 @@
+.btn-custom {
+    background-color: rgb(255, 56, 92) !important;
+    border-color: rgb(255, 56, 92) !important;
+    color: white !important;
+}
+.btn-customtwo {
+    border-color: rgb(255, 56, 92) !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: black !important;
+}
+.btn-customtwo:hover {
+    border-color: rgb(255, 56, 92) !important;
+    border-width: 2px;
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: black !important;
+}
+.nav-custom {
+    color: black !important;
+}
+.sub-nav-custom:hover {
+    background: transparent !important;
+    color: rgb(113, 113, 113) !important;
+}
+
+.sub-nav-custom {
+    color: rgb(113, 113, 113) !important;
+}
+
+.sub-nav-custom.active {
+    background: transparent !important;
+    color: rgb(15, 15, 15) !important;
+}
+.nav-custom.active {
+    background-color: rgb(255, 56, 92) !important;
+    color: white !important;
+}
+.nav-custom:focus {
+    border-color: rgb(209, 59, 87) !important;
+    box-shadow: 0 0 0 0.25rem rgb(209, 59, 87 / 50%) !important;
+}
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important;
+}
+.custom-image_gallery {
+    border-radius: 15px 0px 0px 15px !important;
+}
+
+.custom-image_gallery2 {
+    border-radius: 0px !important;
+}
+
+.custom-image_gallery3 {
+    border-radius: 0px 15px 0px 0px !important;
+}
+
+.custom-image_gallery4 {
+    border-radius: 0px 0px 15px 0px !important;
+}
+
+.card-reservation {
+    border-radius: 15px !important;
+}
