@@ -20,6 +20,17 @@ Route::get('/', Index::class);
 Route::get('/home', Home::class);
 Route::get('/condo', Condo::class);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+// for admin
+Route::middleware(['auth:sanctum','verified'])->group(function(){
+
+});
+
+//for super admin
+Route::middleware(['auth:sanctum','verified'])->group(function(){
+
+});
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
