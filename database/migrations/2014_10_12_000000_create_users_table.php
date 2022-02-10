@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('user_type')->default('ADM')->comment('ADM for Admin, SADM for Super Admin');
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
