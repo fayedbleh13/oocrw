@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\SuperAdmin;
 
-use App\Models\condo;
+use App\Models\Condo;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Database\Eloquent\Builder;
+use NumberFormatter;
+use Illuminate\Support\Str;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\PowerGrid;
@@ -13,6 +15,7 @@ use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGrid\Rules\Rule;
+
 
 final class CondoTable extends PowerGridComponent
 {
@@ -45,7 +48,7 @@ final class CondoTable extends PowerGridComponent
     */
     public function datasource(): ?Builder
     {
-        return condo::query();
+        return Condo::query();
     }
 
     /*
@@ -77,12 +80,27 @@ final class CondoTable extends PowerGridComponent
     public function addColumns(): ?PowerGridEloquent
     {
         return PowerGrid::eloquent()
-            ->addColumn('id')
-            ->addColumn('name')
-            ->addColumn('created_at')
-            ->addColumn('created_at_formatted', function(condo $model) {
-                return Carbon::parse($model->created_at)->format('d/m/Y H:i:s');
-            });
+        ->addColumn('name')
+        ->addColumn('slug')
+        ->addColumn('price_in_php', function (Condo $model) {
+            $format = new NumberFormatter('pt_PT', NumberFormatter::CURRENCY);
+            return $format->formatCurrency($model->price, "PHP");
+        })
+        ->addColumn('promo_price')
+        ->addColumn('featured')
+        ->addColumn('image')
+        ->addColumn('image_gallery')
+        ->addColumn('created_at')
+        ->addColumn('created_at_formatted', function(Condo $model) {
+            return Carbon::parse($model->created_at)->format('d/m/Y H:i:s');
+        })
+        ->addColumn('description_excerpt', function (Condo $model) {
+            return Str::words($model->short_description, 1); //Gets the first 8 words
+        })
+        ->addColumn('description_excerpt', function (Condo $model) {
+            return Str::words($model->description, 1); //Gets the first 8 words
+        });
+
     }
 
     /*
@@ -103,29 +121,73 @@ final class CondoTable extends PowerGridComponent
     {
         return [
             Column::add()
-                ->title('ID')
-                ->field('id')
-                ->searchable()
-                ->sortable(),
+            ->title('Name')
+            ->field('name')
+            ->searchable()
+            ->makeInputText('name')
+            ->sortable(),
+        
+        Column::add()
+            ->title('Short Description')
+            ->field('short_description')
+            ->searchable()
+            ->makeInputText('name')
+            ->sortable(),
+        
+        Column::add()
+            ->title('Description')
+            ->field('description')
+            ->searchable()
+            ->makeInputText('name')
+            ->sortable(),
+            
+        Column::add()
+            ->title('Price')
+            ->field('price')
+            ->searchable()
+            ->makeInputText('name')
+            ->sortable(),
+            
+        Column::add()
+            ->title('Promo Price')
+            ->field('promo_price')
+            ->searchable()
+            ->makeInputText('name')
+            ->sortable(),
+            
+        Column::add()
+            ->title('Featured?')
+            ->field('featured')
+            ->searchable()
+            ->makeInputText('name')
+            ->sortable(),
+            
+        Column::add()
+            ->title('Image')
+            ->field('image')
+            ->searchable()
+            ->makeInputText('name')
+            ->sortable(),
+            
+        Column::add()
+            ->title('Image Gallery')
+            ->field('image_gallery')
+            ->searchable()
+            ->makeInputText('name')
+            ->sortable(),
 
-            Column::add()
-                ->title('Name')
-                ->field('name')
-                ->searchable()
-                ->makeInputText('name')
-                ->sortable(),
+        Column::add()
+            ->title('Created at')
+            ->field('created_at')
+            ->hidden(),
 
-            Column::add()
-                ->title('Created at')
-                ->field('created_at')
-                ->hidden(),
-
-            Column::add()
-                ->title('Created at')
-                ->field('created_at_formatted')
-                ->makeInputDatePicker('created_at')
-                ->searchable()
-        ];
+        Column::add()
+            ->title('Created at')
+            ->field('created_at_formatted')
+            ->makeInputDatePicker('created_at')
+            ->searchable()
+    ];
+;
     }
 
     /*
@@ -137,7 +199,7 @@ final class CondoTable extends PowerGridComponent
     */
 
      /**
-     * PowerGrid condo Action Buttons.
+     * PowerGrid Condo Action Buttons.
      *
      * @return array<int, \PowerComponents\LivewirePowerGrid\Button>
      */
@@ -169,7 +231,7 @@ final class CondoTable extends PowerGridComponent
     */
 
      /**
-     * PowerGrid condo Action Rules.
+     * PowerGrid Condo Action Rules.
      *
      * @return array<int, \PowerComponents\LivewirePowerGrid\Rules\Rule>
      */
@@ -197,7 +259,7 @@ final class CondoTable extends PowerGridComponent
     */
 
      /**
-     * PowerGrid condo Update.
+     * PowerGrid Condo Update.
      *
      * @param array<string,string> $data
      */
@@ -206,7 +268,7 @@ final class CondoTable extends PowerGridComponent
     public function update(array $data ): bool
     {
        try {
-           $updated = condo::query()
+           $updated = Condo::query()->findOrFail($data['id'])
                 ->update([
                     $data['field'] => $data['value'],
                 ]);
