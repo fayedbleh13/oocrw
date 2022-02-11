@@ -4,6 +4,8 @@ use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Condo;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\Index;
+use App\Http\Livewire\Superadmin\Admins;
+use App\Http\Livewire\superadmin\AdminsTable;
 use App\Http\Livewire\SuperAdmin\Dashboard as SuperAdminDashboard;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +33,7 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
 //for super admin
 Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/super-admin/dashboard', SuperAdminDashboard::class)->name('super-admin.dashboard');
+    Route::get('/super-admin/admins-table', Admins::class)->name('super-admin.admins');
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
