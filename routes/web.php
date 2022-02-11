@@ -6,6 +6,7 @@ use App\Http\Livewire\Home;
 use App\Http\Livewire\Index;
 use App\Http\Livewire\Superadmin\Admins;
 use App\Http\Livewire\superadmin\AdminsTable;
+use App\Http\Livewire\SuperAdmin\Condominiums;
 use App\Http\Livewire\SuperAdmin\Dashboard as SuperAdminDashboard;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
 Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/super-admin/dashboard', SuperAdminDashboard::class)->name('super-admin.dashboard');
     Route::get('/super-admin/admins-table', Admins::class)->name('super-admin.admins');
+    Route::get('/super-admin/condominiums', Condominiums::class)->name('super-admin.condo');
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
