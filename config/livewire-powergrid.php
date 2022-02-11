@@ -11,8 +11,8 @@ return [
     | Configure here the theme of your choice.
     */
 
+    // 'theme' => \PowerComponents\LivewirePowerGrid\Themes\Tailwind::class,
     'theme' => \PowerComponents\LivewirePowerGrid\Themes\Bootstrap5::class,
-    //'theme' => \PowerComponents\LivewirePowerGrid\Themes\Bootstrap5::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -31,6 +31,7 @@ return [
             'js'  => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js',
             'css' => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css',
         ],
+        
         /*
          * https://flatpickr.js.org
          */
@@ -61,7 +62,7 @@ return [
     |
     */
 
-    'filter' => 'inline',
+    'filter' => 'outside',
 
     /*
     |--------------------------------------------------------------------------
