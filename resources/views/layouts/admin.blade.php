@@ -26,8 +26,8 @@
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
@@ -98,6 +98,15 @@
                 </div>
                 <span class="nav-link-text ms-1">Profile</span>
             </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  <i class="nav-icon fas fa-sign-out-alt"></i>
+                  <p>Logout</p>
+                </a>
+                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                </form>
             </li>
             <li class="nav-item">
             <a class="nav-link " href="../pages/sign-in.html">
@@ -326,11 +335,9 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+  <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+  <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
   <script>
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 
@@ -426,7 +433,7 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/argon-dashboard.min.js?v=2.0.0"></script>
+  <script src="{{ asset('assets/js/argon-dashboard.min.js?v=2.0.0') }}"></script>
 </body>
 
 </html>
