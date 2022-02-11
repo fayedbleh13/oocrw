@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <h2 class="display-5 fw-bold mb-4" style="margin-left: 8rem; margin-top: 5rem;">One Oasis</h2>
         </x-slot>
 
         <div class="card-body">
