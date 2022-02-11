@@ -40,20 +40,22 @@
         @livewire('navigation-menu') --}}
 
         <!-- Page Heading -->
-        <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <div class="container-lg">
+            <header class="d-flex flex-wrap justify-content-center py-3">
               <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
                 <span class="fs-4">One Oasis</span>
               </a>
         
               <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link rounded-pill nav-custom active" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="/home" class="nav-link rounded-pill nav-custom {{ request()->routeIs('guest.home') ? 'active' : '' }}" aria-current="page">Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link rounded-pill nav-custom">About</a></li>
                 <li class="nav-item"><a href="#" class="nav-link rounded-pill nav-custom">Contact Support</a></li>
                 <li class="nav-item"><a href="#" class="nav-link rounded-pill nav-custom">FAQs</a></li>
               </ul>
             </header>
+
+            <hr style="position: relative; bottom: 15px; color:gray">
           </div>
           
 

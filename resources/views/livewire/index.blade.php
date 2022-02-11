@@ -3,7 +3,7 @@
             <div class="container shadow border py-5 px-5">
                 <h1 class="display-5 fw-bold">One Oasis</h1>
                 <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-                <button class="btn btn-primary btn-custom btn-lg rounded-pill" type="button">Example button</button>
+                <a href="{{ route('guest.home') }}" class="btn btn-primary btn-custom btn-lg rounded-pill" type="button">Check now</a>
             </div>
         </div>
       

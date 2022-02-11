@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', Index::class);
-Route::get('/home', Home::class);
-Route::get('/condo', Condo::class);
+Route::get('/home', Home::class)->name('guest.home');
+Route::get('/condo', Condo::class)->name('guest.condo');
 
 
 // for admin
