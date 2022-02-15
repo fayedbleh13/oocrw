@@ -424,7 +424,6 @@
 
     <!-- Scripts -->
     @livewire('livewire-ui-modal')
-    @livewireUIScripts
     @livewireScripts
     @powerGridScripts
     
