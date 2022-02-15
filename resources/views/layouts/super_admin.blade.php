@@ -57,7 +57,7 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active" href="../pages/dashboard.html">
+            <a class="nav-link active" href="{{ route('admin.dashboard') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
                 </div>
@@ -73,7 +73,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('super-admin.admins') }}">
+                <a class="nav-link " href="{{ route('super-admin.condo') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                     </div>
@@ -324,6 +324,7 @@
     <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <script>
         var ctx1 = document.getElementById("chart-line").getContext("2d");
