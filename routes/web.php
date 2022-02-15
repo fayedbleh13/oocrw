@@ -26,6 +26,7 @@ Route::get('/home', Home::class)->name('guest.home');
 Route::get('/condo', Condo::class)->name('guest.condo');
 
 
+
 // for admin
 Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/admin/dashboard', Dashboard::class)->name('admin.dashboard');

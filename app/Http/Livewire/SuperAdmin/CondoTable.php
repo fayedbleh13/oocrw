@@ -35,8 +35,7 @@ final class CondoTable extends PowerGridComponent
     {
         $this->showCheckBox()
             ->showPerPage()
-            ->showSearchInput()
-            ->showExportOption('download', ['excel', 'csv']);
+            ->showSearchInput();
     }
 
     /*
@@ -80,26 +79,29 @@ final class CondoTable extends PowerGridComponent
     public function addColumns(): ?PowerGridEloquent
     {
         return PowerGrid::eloquent()
-        ->addColumn('name')
+        ->addColumn('name', function (Condo $model) {
+            return Str::words($model->name, 5);
+        })
         ->addColumn('slug')
-        ->addColumn('price_in_php', function (Condo $model) {
-            $format = new NumberFormatter('pt_PT', NumberFormatter::CURRENCY);
-            return $format->formatCurrency($model->price, "PHP");
+        ->addColumn('short_description', function (Condo $model) {
+            return Str::words($model->short_description, 5); //Gets the first 5 words
+        })
+        ->addColumn('description', function (Condo $model) {
+            return Str::words($model->description, 8); //Gets the first 8 words
+        })
+        ->addColumn('price', function (Condo $model) {
+            $fmt = new NumberFormatter('pt_PT', NumberFormatter::CURRENCY);
+            return $fmt->formatCurrency($model->price, "PHP");
         })
         ->addColumn('promo_price')
         ->addColumn('featured')
         ->addColumn('image')
         ->addColumn('image_gallery')
-        ->addColumn('created_at')
         ->addColumn('created_at_formatted', function(Condo $model) {
             return Carbon::parse($model->created_at)->format('d/m/Y H:i:s');
-        })
-        ->addColumn('description_excerpt', function (Condo $model) {
-            return Str::words($model->short_description, 1); //Gets the first 8 words
-        })
-        ->addColumn('description_excerpt', function (Condo $model) {
-            return Str::words($model->description, 1); //Gets the first 8 words
         });
+       
+        
 
     }
 

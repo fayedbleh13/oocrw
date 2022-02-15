@@ -30,8 +30,10 @@ final class AdminsTable extends PowerGridComponent
     */
     public function setUp(): void
     {
-        $this->showPerPage()
-            ->showSearchInput();
+        $this->showPerPage(10)
+            ->showRecordCount()
+            ->showSearchInput()
+            ->showExportOption('admins', ['excel', 'csv']);
     }
 
     /*

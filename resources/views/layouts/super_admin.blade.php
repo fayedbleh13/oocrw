@@ -423,9 +423,11 @@
     <script src="{{ asset('assets/js/argon-dashboard.min.js?v=2.0.0') }}"></script>
 
     <!-- Scripts -->
+    @livewire('livewire-ui-modal')
+    @livewireUIScripts
     @livewireScripts
     @powerGridScripts
-  
+    
 </body>
 
 </html>
