@@ -8,6 +8,6 @@ class Condominiums extends Component
 {
     public function render()
     {
-        return view('livewire.super-admin.condominiums')->layout('layouts.super_admin');
+        return view('livewire.super-admin.condominiums');
     }
 }

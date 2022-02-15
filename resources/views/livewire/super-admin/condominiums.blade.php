@@ -1,10 +1,3 @@
 <div>
-    <div class="container">
-        <div class="card card-frame">
-            <div class="card-body">
-                <livewire:super-admin.condo-table/>
-            </div>
-          </div>
-        
-    </div>
+    {{-- Nothing in the world is as soft and yielding as water. --}}
 </div>
