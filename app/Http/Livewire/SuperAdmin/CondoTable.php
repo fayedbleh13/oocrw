@@ -77,6 +77,7 @@ final class CondoTable extends PowerGridComponent
     {
         return PowerGrid::eloquent()
 <<<<<<< HEAD
+<<<<<<< HEAD
         ->addColumn('name', function (Condo $model) {
             return Str::words($model->name, 5);
         })
@@ -102,12 +103,17 @@ final class CondoTable extends PowerGridComponent
         
 
 =======
+=======
+>>>>>>> parent of 58ebc35 (added condo tables and condominium blade)
             ->addColumn('id')
             ->addColumn('name')
             ->addColumn('created_at')
             ->addColumn('created_at_formatted', function(condo $model) {
                 return Carbon::parse($model->created_at)->format('d/m/Y H:i:s');
             });
+<<<<<<< HEAD
+>>>>>>> parent of 58ebc35 (added condo tables and condominium blade)
+=======
 >>>>>>> parent of 58ebc35 (added condo tables and condominium blade)
     }
 
