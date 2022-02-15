@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\SuperAdmin;
 
-use App\Models\condo;
+use App\Models\Condo;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Database\Eloquent\Builder;
@@ -32,7 +32,8 @@ final class CondoTable extends PowerGridComponent
     {
         $this->showCheckBox()
             ->showPerPage()
-            ->showSearchInput();
+            ->showSearchInput()
+            ->showExportOption('download', ['excel', 'csv']);
     }
 
     /*
@@ -44,7 +45,7 @@ final class CondoTable extends PowerGridComponent
     */
     public function datasource(): ?Builder
     {
-        return condo::query();
+        return Condo::query();
     }
 
     /*
@@ -76,30 +77,13 @@ final class CondoTable extends PowerGridComponent
     public function addColumns(): ?PowerGridEloquent
     {
         return PowerGrid::eloquent()
-        ->addColumn('name', function (Condo $model) {
-            return Str::words($model->name, 5);
-        })
-        ->addColumn('slug')
-        ->addColumn('short_description', function (Condo $model) {
-            return Str::words($model->short_description, 5); //Gets the first 5 words
-        })
-        ->addColumn('description', function (Condo $model) {
-            return Str::words($model->description, 8); //Gets the first 8 words
-        })
-        ->addColumn('price', function (Condo $model) {
-            $fmt = new NumberFormatter('pt_PT', NumberFormatter::CURRENCY);
-            return $fmt->formatCurrency($model->price, "PHP");
-        })
-        ->addColumn('promo_price')
-        ->addColumn('featured')
-        ->addColumn('image')
-        ->addColumn('image_gallery')
-        ->addColumn('created_at_formatted', function(Condo $model) {
-            return Carbon::parse($model->created_at)->format('d/m/Y H:i:s');
-        });
-       
-        
-
+            ->addColumn('id')
+            ->addColumn('created_at_formatted', function(Condo $model) { 
+                return Carbon::parse($model->created_at)->format('d/m/Y H:i:s');
+            })
+            ->addColumn('updated_at_formatted', function(Condo $model) { 
+                return Carbon::parse($model->updated_at)->format('d/m/Y H:i:s');
+            });
     }
 
     /*
@@ -122,27 +106,24 @@ final class CondoTable extends PowerGridComponent
             Column::add()
                 ->title('ID')
                 ->field('id')
-                ->searchable()
-                ->sortable(),
+                ->makeInputRange(),
 
             Column::add()
-                ->title('Name')
-                ->field('name')
+                ->title('CREATED AT')
+                ->field('created_at_formatted', 'created_at')
                 ->searchable()
-                ->makeInputText('name')
-                ->sortable(),
+                ->sortable()
+                ->makeInputDatePicker('created_at'),
 
             Column::add()
-                ->title('Created at')
-                ->field('created_at')
-                ->hidden(),
-
-            Column::add()
-                ->title('Created at')
-                ->field('created_at_formatted')
-                ->makeInputDatePicker('created_at')
+                ->title('UPDATED AT')
+                ->field('updated_at_formatted', 'updated_at')
                 ->searchable()
-        ];
+                ->sortable()
+                ->makeInputDatePicker('updated_at'),
+
+        ]
+;
     }
 
     /*
@@ -154,7 +135,7 @@ final class CondoTable extends PowerGridComponent
     */
 
      /**
-     * PowerGrid condo Action Buttons.
+     * PowerGrid Condo Action Buttons.
      *
      * @return array<int, \PowerComponents\LivewirePowerGrid\Button>
      */
@@ -186,7 +167,7 @@ final class CondoTable extends PowerGridComponent
     */
 
      /**
-     * PowerGrid condo Action Rules.
+     * PowerGrid Condo Action Rules.
      *
      * @return array<int, \PowerComponents\LivewirePowerGrid\Rules\Rule>
      */
@@ -214,7 +195,7 @@ final class CondoTable extends PowerGridComponent
     */
 
      /**
-     * PowerGrid condo Update.
+     * PowerGrid Condo Update.
      *
      * @param array<string,string> $data
      */
@@ -223,7 +204,7 @@ final class CondoTable extends PowerGridComponent
     public function update(array $data ): bool
     {
        try {
-           $updated = condo::query()
+           $updated = Condo::query()->findOrFail($data['id'])
                 ->update([
                     $data['field'] => $data['value'],
                 ]);
