@@ -13,7 +13,7 @@
                 
                     <div class="modal-body">
                         <div class="row">
-                            <input type="hidden" wire:model="building_id">
+                            <input type="hidden" wire:model="category_id">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="FormControlName" class="form-label">Name</label>

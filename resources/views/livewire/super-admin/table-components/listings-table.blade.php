@@ -23,19 +23,19 @@
         <table class="table align-items-center mb-0 table-hover table-bordered">
             <thead class="table-light">
             <tr>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                    <a wire:click.prevent="sortBy('name')" href="#" role="button" >House-rule Name
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    <a wire:click.prevent="sortBy('name')" href="#" role="button" >Unit Name
                         @include('livewire.super-admin.table-components._sort-icon', ['field' => 'name'])
                     </a>
                 </th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                    <a wire:click.prevent="sortBy('slug')" href="#" role="button" >House-rule Slug
-                        @include('livewire.super-admin.table-components._sort-icon', ['field' => 'slug'])
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                    <a wire:click.prevent="sortBy('image')" href="#" role="button" >Image
+                        @include('livewire.super-admin.table-components._sort-icon', ['field' => 'image'])
                     </a>
                 </th>
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                    <a wire:click.prevent="sortBy('description')" href="#" role="button" >Description
-                        @include('livewire.super-admin.table-components._sort-icon', ['field' => 'description'])
+                    <a wire:click.prevent="sortBy('short_description')" href="#" role="button" >Short Description
+                        @include('livewire.super-admin.table-components._sort-icon', ['field' => 'short_description'])
                     </a>
                 </th>
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -51,8 +51,8 @@
                     @foreach ($listings as $unit)
                     <tr>
                     <td align="center">{{ $unit->name }}</td>
-                    <td align="center">{{ $unit->slug }}</td>
-                    <td align="center">{{ $unit->description }}</td>
+                    <td align="center">{{ $unit->image }}</td>
+                    <td align="center">{{ $unit->short_description }}</td>
                     <td align="center">{{ $unit->created_at }}</td>
                     <td align="center">
                         <button type="button" class="btn bg-gradient-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editCondoModal" wire:click="edit({{ $unit->id }})">Edit</button> 
