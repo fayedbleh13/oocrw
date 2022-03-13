@@ -20,6 +20,10 @@ class AuthAdmin
         {
             return $next($request);
         }
+        elseif (session('user_type') === 'ADM') 
+        {
+            return $next($request);
+        }
         else 
         {
             session()->flush();

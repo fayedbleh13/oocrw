@@ -50,7 +50,6 @@
               <ul class="nav nav-pills">
                 <li class="nav-item"><a href="/home" class="nav-link rounded-pill nav-custom {{ request()->routeIs('guest.home') ? 'active' : '' }}" aria-current="page">Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link rounded-pill nav-custom">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link rounded-pill nav-custom">Contact Support</a></li>
                 <li class="nav-item"><a href="#" class="nav-link rounded-pill nav-custom">FAQs</a></li>
               </ul>
             </header>
@@ -68,7 +67,7 @@
         <footer class="footer mt-auto py-3 bg-light border-top">
             <div class="container">
                 <p class="float-end"><a href="#">Back to top</a></p>
-                <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+                <p>&copy; 2021 One Oasis, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
             </div>
         </footer>
         {{-- <footer class="container">
