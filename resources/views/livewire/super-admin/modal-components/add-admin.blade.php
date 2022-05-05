@@ -25,6 +25,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text"><img src="{{ asset('img/ph_flag.png') }}" alt=""> +63</span>
+                                        <input type="text" wire:model="number" class="form-control" placeholder="Mobile Number" aria-label="Mobile Number">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
                                     <div class="form-group">
                                     <input type="password" class="form-control" wire:model="password" placeholder="Password">
                                     </div>

@@ -45,6 +45,15 @@ class CategoriesTable extends Component
     }
     //end of column sorting function
 
+    public function view($id)
+    {
+        $categories = Category::where('id', $id)->first();
+        $this->categories_id = $id;
+        $this->name = $categories->name;
+        $this->slug = $categories->slug;
+        $this->description = $categories->description;
+    }
+
     public function edit($id)
     {
         $categories = Category::where('id', $id)->first();
@@ -63,7 +72,7 @@ class CategoriesTable extends Component
             $categories->description = $this->description;
             $categories->save();
     
-            return redirect('/super-admin/categories')->with('msg', 'Category has been updated succesfully')->layout('layouts.super_admin');
+            return redirect('/super-admin/categories')->with('msg', 'Category has been updated succesfully');
         }
     }
 

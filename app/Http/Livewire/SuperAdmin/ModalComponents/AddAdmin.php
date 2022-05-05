@@ -13,6 +13,7 @@ class AddAdmin extends ModalComponent
     public $email;
     public $password;
     public $user_type;
+    public $number;
 
     // protected $rules = [
     //     'name' => 'required',
@@ -26,6 +27,7 @@ class AddAdmin extends ModalComponent
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
+            'number' => 'required'
         ]);
     }
 
@@ -35,6 +37,7 @@ class AddAdmin extends ModalComponent
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
+            'number' => 'required'
         ]);
         
         $hashPass = Hash::make($this->password);
@@ -42,6 +45,7 @@ class AddAdmin extends ModalComponent
         $admin = new User();
         $admin->name = $this->name;
         $admin->email = $this->email;
+        $admin->mobile_number = '63'.$this->number;
         $admin->password = $hashPass;
         $admin->user_type = 'ADM';
         $admin->save();

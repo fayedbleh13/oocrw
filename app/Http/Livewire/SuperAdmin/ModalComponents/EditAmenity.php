@@ -8,6 +8,6 @@ class EditAmenity extends ModalComponent
 {
     public function render()
     {
-        return view('livewire.super-admin.modal-components.edit-amenity');
+        return view('livewire.super-admin.modal-components.edit-amenity')->layout('layouts.super_admin');
     }
 }

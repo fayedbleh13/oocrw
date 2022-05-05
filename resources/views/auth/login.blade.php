@@ -1,10 +1,12 @@
+<div>
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <h2 class="display-5 fw-bold mb-4" style="margin-left: 8rem; margin-top: 5rem;">One Oasis</h2>
+            <img src="{{ asset('img/logo_1.png') }}" height="350" width="450" style="margin-left: 1.5em;">
+            {{-- <h2 class="display-5 fw-bold mb-4" style="margin-left: 8rem; margin-top: 5rem;">One Oasis</h2> --}}
         </x-slot>
 
-        <div class="card-body">
+        <div class="card-body   ">
 
             <x-jet-validation-errors class="mb-3 rounded-0" />
 
@@ -57,3 +59,4 @@
         </div>
     </x-jet-authentication-card>
 </x-guest-layout>
+</div>

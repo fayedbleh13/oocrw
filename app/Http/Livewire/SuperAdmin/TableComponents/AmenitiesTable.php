@@ -58,14 +58,14 @@ class AmenitiesTable extends Component
 
     public function updateAmenity()
     {
-        if ($this->amenities_id) {
-            $amen = Amenity::find($this->amenities_id);
+        if ($this->amen_id) {
+            $amen = Amenity::find($this->amen_id);
             $amen->name = $this->name;
             $amen->slug = $this->slug;
             $amen->description = $this->description;
             $amen->save();
     
-            return redirect('/super-admin/amenities')->with('msg', 'Amenity has been updated succesfully')->layout('layouts.super_admin');
+            return redirect('/super-admin/amenities')->with('msg', 'Amenity has been updated succesfully');
         }
     }
 

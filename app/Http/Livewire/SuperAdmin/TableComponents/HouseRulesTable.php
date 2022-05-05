@@ -65,6 +65,7 @@ class HouseRulesTable extends Component
             return redirect('/super-admin/house-rules')->with('msg', 'Houserule has been updated succesfully');
         }
     }
+    
     public function render()
     {
          

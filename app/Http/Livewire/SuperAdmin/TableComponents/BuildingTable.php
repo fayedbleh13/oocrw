@@ -63,7 +63,7 @@ class BuildingTable extends Component
             $building->description = $this->description;
             $building->save();
     
-            return redirect('/super-admin/buildings')->with('msg', 'Building has been updated succesfully')->layout('layouts.super_admin');
+            return redirect('/super-admin/buildings')->with('msg', 'Building has been updated succesfully');
         }
     }
 

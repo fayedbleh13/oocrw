@@ -15,4 +15,9 @@ class Amenity extends Model
         'slug',
         'description',
     ];
+
+    // public function listing()
+    // {
+    //     return $this->belongsTo(Listing::class, 'listings_id');
+    // }
 }

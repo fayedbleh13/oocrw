@@ -23,12 +23,12 @@
         <table class="table align-items-center mb-0 table-hover table-bordered">
             <thead class="table-light">
             <tr>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
                     <a wire:click.prevent="sortBy('name')" href="#" role="button" >Amenity Name
                         @include('livewire.super-admin.table-components._sort-icon', ['field' => 'name'])
                     </a>
                 </th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                     <a wire:click.prevent="sortBy('slug')" href="#" role="button" >Amenity Slug
                         @include('livewire.super-admin.table-components._sort-icon', ['field' => 'slug'])
                     </a>
@@ -43,30 +43,11 @@
                         @include('livewire.super-admin.table-components._sort-icon', ['field' => 'created_at'])
                     </a>
                 </th>
-                <th class="text-secondary opacity-7">Actions</th>
+                <th class="text-center text-secondary font-weight-bolder opacity-7" style="color: rgb(78, 77, 77) !important;">Actions</th>
             </tr>
             </thead>
             <tbody class="table-bordered">
-               
-                   {{-- @if (is_Null($amenities))
-                    <tr>
-                       <td colspan="5">No Records found</td>
-                    </tr>
-                   @else
-                   @foreach ($amenities as $amenity )
-                   <tr>
-                    <td align="center">{{ $amenity->name }}</td>
-                    <td align="center">{{ $amenity->slug }}</td>
-                    <td align="center">{{ $amenity->description }}</td>
-                    <td align="center">{{ $amenity->created_at }}</td>
-                    <td align="center">
-                        <button type="button" class="btn bg-gradient-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editAmenityModal" wire:click="edit({{ $amenity->id }})">Edit</button> 
-                    </td>
-                    @endforeach
-                        
-                    </tr> 
-                   @endif --}}
-
+            
                    @foreach ($amenitya as $amen )
                    <tr>
                     <td align="center">{{ $amen->name }}</td>
@@ -82,19 +63,15 @@
         </table>
         </div>
 
-        <div class="row mt-3">
+        <div class="mt-3 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <div class="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <!-- pagination here -->
+                {{ $amenitya->onEachSide(0)->links() }}
+            </div>
 
-            <div class="col-6 text-muted ml-4">
+            <div class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 Showing {{ $amenitya->firstItem() }} to {{ $amenitya->lastItem() }} out of {{ $amenitya->total() }} results
             </div>
-
-            <div class="col-6">
-                <!-- pagination here -->
-                {{ $amenitya->links() }}
-            </div>
-
-                
-            
         </div>
         
     </div>

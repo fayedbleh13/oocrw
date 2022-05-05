@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Listing extends Model
 {
     use HasFactory;
-
+    protected $table = 'listings';
+    
     protected $fillable = [
         'name',
         'slug',
@@ -30,5 +31,10 @@ class Listing extends Model
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class, 'location_id');
     }
 }

@@ -3548,12 +3548,12 @@ textarea.form-control.is-invalid {
   display: inline-block;
   font-weight: 700;
   line-height: 1.5;
-  color: #67748e;
+  color: #838588;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
-  background-color: transparent;
+  background-color: #ffffff;
   border: 1px solid transparent;
   padding: 0.625rem 1.25rem;
   font-size: 0.875rem;
@@ -4964,7 +4964,7 @@ fieldset:disabled .btn {
 
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
-  color: #344767;
+  color: #ffffff;
   background-color: #fff;
 }
 
@@ -5753,7 +5753,7 @@ fieldset:disabled .btn {
   color: #67748e;
   text-align: left;
   background-color: transparent;
-  border: 0;
+  border: 0 !important;
   border-radius: 0;
   overflow-anchor: none;
   transition: all 0.15s ease-in, border-radius 0.15s ease;
@@ -5766,8 +5766,8 @@ fieldset:disabled .btn {
 }
 
 .accordion-button:not(.collapsed) {
-  color: #344767;
-  background-color: transparent;
+  color: #f8f8f8;
+  background-color: rgb(255, 56, 92);
   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.125);
 }
 
@@ -5807,11 +5807,12 @@ fieldset:disabled .btn {
 
 .accordion-header {
   margin-bottom: 0;
-}
+background-color: white;border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;}
 
 .accordion-item {
-  background-color: transparent;
-  border: 0 solid rgba(0, 0, 0, 0.125);
+  background-color: #f8f8f800;
+  border: 1px solid rgba(0,0,0,.125);
 }
 
 .accordion-item:first-of-type {
@@ -5845,7 +5846,7 @@ fieldset:disabled .btn {
 
 .accordion-body {
   padding: 1rem 1rem;
-}
+background-color: white;}
 
 .accordion-flush .accordion-collapse {
   border-width: 0;
@@ -6609,7 +6610,7 @@ fieldset:disabled .btn {
   width: 1em;
   height: 1em;
   padding: 0.25em 0.25em;
-  color: #fff;
+  /* background-color: black; */
   background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
   border: 0;
   border-radius: 0.25rem;
@@ -6794,7 +6795,7 @@ fieldset:disabled .btn {
 .modal-header .btn-close {
   padding: 0.5rem 0.5rem;
   margin: -0.5rem -0.5rem -0.5rem auto;
-}
+/* background-color: black; */}
 
 .modal-title {
   margin-bottom: 0;
@@ -19961,7 +19962,7 @@ fieldset:disabled .btn {
 
 .btn {
   margin-bottom: 1rem;
-  letter-spacing: -0.025rem;
+  margin-right: 0.6em;letter-spacing: -0.025rem;
   text-transform: none;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
@@ -23322,7 +23323,7 @@ hr.horizontal.gray-light {
 }
 
 .nav.nav-pills {
-  background: #f8f9fa;
+  /* background: #f8f9fa; */
   border-radius: 0.75rem;
   position: relative;
 }
@@ -23337,7 +23338,7 @@ hr.horizontal.gray-light {
 
 .nav.nav-pills .nav-link {
   z-index: 3;
-  color: #344767;
+  color: #ffffff;
   border-radius: 0.5rem;
   background-color: inherit;
 }
@@ -23549,6 +23550,8 @@ hr.horizontal.gray-light {
 
 .progress {
   overflow: visible;
+  position: absolute !important;
+  left: 177px !important;
 }
 
 .progress.progress-xs {

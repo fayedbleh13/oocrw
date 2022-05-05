@@ -9,14 +9,18 @@
         "bastinald/laravel-livewire-modals": "^3.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "jantinnerezo/livewire-alert": "^2.2",
         "laravel/framework": "^8.75",
         "laravel/jetstream": "^2.6",
+        "laravel/nexmo-notification-channel": "^3.0",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "livewire-ui/modal": "^1.0",
         "livewire/livewire": "^2.5",
+        "nexmo/laravel": "^3.0",
         "power-components/livewire-powergrid": "^2.2",
         "rappasoft/laravel-livewire-tables": "^1.24",
+        "vonage/client": "^3.0",
         "wire-elements/modal": "^1.0"
     },
     "require-dev": {

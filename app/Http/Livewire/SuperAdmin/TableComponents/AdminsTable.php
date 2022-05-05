@@ -52,6 +52,7 @@ class AdminsTable extends Component
                             ->where('user_type', 'ADM')
                             ->orderBy($this->sortField, $this->sortDirection)
                             ->paginate($this->perPage);
+                            
         return view('livewire.super-admin.table-components.admins-table', ['admen' => $admen])->layout('layout.super_admin');
     }
 }
