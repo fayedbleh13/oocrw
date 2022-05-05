@@ -62,7 +62,7 @@
                             @endforeach
                         </td>
                         <td align="center">
-                            {{ $amen->updated_at }}
+                            <td align="center">{{ date_format($l->updated_at,'d M Y') }} {{ date('h:i A', strtotime($l->updated_at)) }}</td>
                         </td>
                         <td align="center">
                             <button type="button" class="btn bg-gradient-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editAssignAmenity" wire:click="edit({{ $amen->id }})">Edit</button> 

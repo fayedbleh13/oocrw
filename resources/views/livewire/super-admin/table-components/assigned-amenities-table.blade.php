@@ -39,8 +39,8 @@
                     </a>
                 </th>
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                    <a wire:click.prevent="sortBy('created_at')" href="#" role="button" >Date Assigned
-                        @include('livewire.super-admin.table-components._sort-icon', ['field' => 'created_at'])
+                    <a wire:click.prevent="sortBy('updated_at')" href="#" role="button" >Date Assigned
+                        @include('livewire.super-admin.table-components._sort-icon', ['field' => 'updated_at'])
                     </a>
                 </th>
                 <th class="text-center text-secondary font-weight-bolder opacity-7" style="color: rgb(78, 77, 77) !important;">Actions</th>
@@ -62,7 +62,7 @@
                             @endforeach
                         </td>
                         <td align="center">
-                            {{ $amen->updated_at }}
+                            <td align="center">{{ date_format($l->updated_at,'d M Y') }} {{ date('h:i A', strtotime($l->updated_at)) }}</td>
                         </td>
                         <td align="center">
                             <button type="button" class="btn bg-gradient-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editAssignAmenity" wire:click="edit({{ $amen->id }})">Edit</button> 

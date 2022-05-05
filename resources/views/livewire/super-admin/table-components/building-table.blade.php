@@ -52,7 +52,7 @@
                     <td align="center">{{ $b->name }}</td>
                     <td align="center">{{ $b->slug }}</td>
                     <td align="center">{{ $b->description }}</td>
-                    <td align="center">{{ $b->created_at }}</td>
+                    <td align="center">{{ date_format($l->created_at,'d M Y') }} {{ date('h:i A', strtotime($l->created_at)) }}</td>
                     <td align="center">
                         <button type="button" class="btn bg-gradient-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editbuildingModal" wire:click="edit({{ $b->id }})">Edit</button> 
                     </td>
