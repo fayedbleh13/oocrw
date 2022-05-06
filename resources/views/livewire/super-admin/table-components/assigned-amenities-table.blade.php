@@ -61,9 +61,11 @@
                                 <span class="badge bg-primary">{{ $tags }}</span>
                             @endforeach
                         </td>
+                        
                         <td align="center">
-                            <td align="center">{{ date_format($l->updated_at,'d M Y') }} {{ date('h:i A', strtotime($l->updated_at)) }}</td>
+                            {{ date_format($amen->updated_at,'d M Y') }} {{ date('h:i A', strtotime($amen->updated_at)) }}
                         </td>
+                        
                         <td align="center">
                             <button type="button" class="btn bg-gradient-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editAssignAmenity" wire:click="edit({{ $amen->id }})">Edit</button> 
                         </td>

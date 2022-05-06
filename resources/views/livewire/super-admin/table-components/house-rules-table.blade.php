@@ -53,7 +53,7 @@
                     <td align="center">{{ $ho->name }}</td>
                     <td align="center">{{ $ho->slug }}</td>
                     <td align="center">{{ $ho->description }}</td>
-                    <td align="center">{{ date_format($l->created_at,'d M Y') }} {{ date('h:i A', strtotime($l->created_at)) }}</td>
+                    <td align="center">{{ date_format($ho->created_at,'d M Y') }} {{ date('h:i A', strtotime($ho->created_at)) }}</td>
                     <td align="center">
                         <button type="button" class="btn bg-gradient-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editHouseruleModal" wire:click="edit({{ $ho->id }})">Edit</button> 
                     </td>

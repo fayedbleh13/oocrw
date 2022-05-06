@@ -5,7 +5,7 @@
             <form wire:submit.prevent="reAssignHouserules">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="ModalLabel">Assign house-rules to a specific unit</h5>
+                    <h5 class="modal-title" id="ModalLabel">Re-assign house-rules to a specific unit</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

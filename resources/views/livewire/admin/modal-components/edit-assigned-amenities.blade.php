@@ -5,7 +5,7 @@
             
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="ModalLabel">Re-assigned Amenity to this unit</h5>
+                    <h5 class="modal-title" id="ModalLabel">Re-assign Amenity to this unit</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
