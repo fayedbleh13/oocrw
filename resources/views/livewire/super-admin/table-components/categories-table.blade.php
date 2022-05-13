@@ -48,7 +48,7 @@
                 <tr>
                     <td align="center">{{ $c->name }}</td>
                     <td align="center">{{ $c->slug }}</td>
-                    <td align="center">{{ date_format($l->created_at,'d M Y') }} {{ date('h:i A', strtotime($l->created_at)) }}</td>
+                    <td align="center">{{ date_format($c->created_at,'d M Y') }} {{ date('h:i A', strtotime($c->created_at)) }}</td>
                     <td align="center">
                         <button type="button" class="btn bg-gradient-info btn-sm" data-bs-toggle="modal" data-bs-target="#viewCategoryModal" wire:click="view({{ $c->id }})">View</button>
                         <button type="button" class="btn bg-gradient-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editCategoryModal" wire:click="edit({{ $c->id }})">Edit</button> 

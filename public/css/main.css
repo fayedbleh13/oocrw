@@ -65,7 +65,7 @@
 .nav-custom.active {
     background-color: rgb(255, 56, 92) !important;
     color: white !important;
-}
+font-weight: bold;}
 .nav-custom:focus {
     border-color: rgb(209, 59, 87) !important;
     box-shadow: 0 0 0 0.25rem rgb(209, 59, 87 / 50%) !important;

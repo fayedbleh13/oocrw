@@ -57,7 +57,7 @@
                             <span class="badge bg-gradient-success">New</span>
                         @endif
                     </td>
-                    <td align="center">{{ $rs->created_at }}</td>
+                    <td align="center">{{ date_format($rs->created_at,'d M Y') }} {{ date('h:i A', strtotime($rs->created_at)) }}</td>
                     <td align="center">
                         <button type="button" class="btn bg-gradient-primary btn-sm" data-bs-toggle="modal" data-bs-target="#viewReservationModal" wire:click="view({{ $rs->id }})">View</button> 
                         <button type="button" class="btn bg-gradient-warning btn-sm" data-bs-toggle="modal" data-bs-target="#updateReserveModal" wire:click="update({{ $rs->id }})">Update</button>

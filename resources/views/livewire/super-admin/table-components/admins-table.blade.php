@@ -56,7 +56,7 @@
                             <span>Admin</span>
                         @endif
                     </td>
-                    <td class="text-center">{{ $admin->created_at }}</td>
+                    <td align="center">{{ date_format($admin->created_at,'d M Y') }} {{ date('h:i A', strtotime($admin->created_at)) }}</td>
                   
                     @endforeach
                 

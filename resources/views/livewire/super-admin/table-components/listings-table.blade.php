@@ -58,7 +58,7 @@
                         <td align="center"><img src="{{ asset('img/img/' . $unit->image) }}" width="50" alt="{{$unit->image}}"></td>
                         <td align="center">{{ $unit->building->name }}</td>
                         <td align="center">{{ $unit->category->name }}</td>
-                        <td align="center">{{ date_format($l->created_at,'d M Y') }} {{ date('h:i A', strtotime($l->created_at)) }}</td>
+                        <td align="center">{{ date_format($unit->created_at,'d M Y') }} {{ date('h:i A', strtotime($unit->created_at)) }}</td>
                         <td align="center">
                             <button type="button" class="btn bg-gradient-info btn-sm" data-bs-toggle="modal" data-bs-target="#viewCondoModal" wire:click="view({{ $unit->id }})">View</button> 
                             <button type="button" class="btn bg-gradient-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editCondoModal" wire:click="edit({{ $unit->id }})">Edit</button> 

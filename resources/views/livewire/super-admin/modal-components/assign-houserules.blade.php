@@ -54,7 +54,7 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect2">House-rules</label>
                                     <div wire:ignore>
-                                        <select multiple class="form-select" id="selectHouserules" wire:model="house_rules" data-placeholder="Select an amenity that applies">
+                                        <select multiple class="form-select" id="selectHouserules" wire:model="house_rules" data-placeholder="Select a house-rules that applies">
                                             @foreach($hrules as $id => $item)
                                             <option value="{{$item}}">{{$item}}</option>
                                             @endforeach

@@ -53,7 +53,7 @@
                     <td align="center">{{ $amen->name }}</td>
                     <td align="center">{{ $amen->slug }}</td>
                     <td align="center">{{ $amen->description }}</td>
-                    <td align="center">{{ $amen->created_at }}</td>
+                    <td align="center">{{ date_format($amen->created_at,'d M Y') }} {{ date('h:i A', strtotime($amen->created_at)) }}</td>
                     <td align="center">
                         <button type="button" class="btn bg-gradient-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editAmenityModal" wire:click="edit({{ $amen->id }})">Edit</button> 
                     </td>

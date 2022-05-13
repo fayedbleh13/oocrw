@@ -21,10 +21,11 @@
                       <h5 class="font-weight-bolder">
                         {{ $pendings }}
                       </h5>
-                      <p class="mb-0">
+                      {{-- <a class="btn btn-primary d-grid gap-2" href="{{ route('admin.reservations') }}">Go to Reservations</a> --}}
+                      {{-- <p class="mb-0">
                         <span class="text-success text-sm font-weight-bolder">+55%</span>
                         since yesterday
-                      </p>
+                      </p> --}}
                     </div>
                   </div>
                   <div class="col-4 text-end">
@@ -32,6 +33,9 @@
                       <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
                     </div>
                   </div>
+                  {{-- <div class="col-12 mt-4 mb-0">
+                    <a class="btn btn-primary btn-lg d-grid gap-2" href="{{ route('admin.reservations') }}">Go to Reservations</a>
+                  </div> --}}
                 </div>
               </div>
             </div>
@@ -46,10 +50,10 @@
                       <h5 class="font-weight-bolder">
                         {{ $approved }}
                       </h5>
-                      <p class="mb-0">
+                      {{-- <p class="mb-0">
                         <span class="text-success text-sm font-weight-bolder">+3%</span>
                         since last week
-                      </p>
+                      </p> --}}
                     </div>
                   </div>
                   <div class="col-4 text-end">
@@ -71,10 +75,10 @@
                       <h5 class="font-weight-bolder">
                         {{ $overall }}
                       </h5>
-                      <p class="mb-0">
+                      {{-- <p class="mb-0">
                         <span class="text-success text-sm font-weight-bolder">+3%</span>
                         since last week
-                      </p>
+                      </p> --}}
                     </div>
                   </div>
                   <div class="col-4 text-end">
@@ -87,7 +91,7 @@
             </div>
           </div>
         </div>
-        <div class="row mt-4">
+        {{-- <div class="row mt-4">
           <div class="col-lg- mb-lg-0 mb-4">
             <div class="card z-index-2 h-100">
               <div class="card-header pb-0 pt-3 bg-transparent">
@@ -104,7 +108,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
        
     </div>
 </div>

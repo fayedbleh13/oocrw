@@ -26,10 +26,10 @@
                           <h5 class="font-weight-bolder">
                             {{ $admin }}
                           </h5>
-                          <p class="mb-0">
+                          {{-- <p class="mb-0">
                             <span class="text-success text-sm font-weight-bolder">+3%</span>
                             since last week
-                          </p>
+                          </p> --}}
                         </div>
                       </div>
                       <div class="col-4 text-end">
@@ -51,10 +51,10 @@
                       <h5 class="font-weight-bolder">
                         {{ $unit }}
                       </h5>
-                      <p class="mb-0">
+                      {{-- <p class="mb-0">
                         <span class="text-success text-sm font-weight-bolder">+55%</span>
                         since yesterday
-                      </p>
+                      </p> --}}
                     </div>
                   </div>
                   <div class="col-4 text-end">
@@ -76,10 +76,10 @@
                       <h5 class="font-weight-bolder">
                         {{ $building }}
                       </h5>
-                      <p class="mb-0">
+                      {{-- <p class="mb-0">
                         <span class="text-danger text-sm font-weight-bolder">-2%</span>
                         since last quarter
-                      </p>
+                      </p> --}}
                     </div>
                   </div>
                   <div class="col-4 text-end">
@@ -92,7 +92,7 @@
             </div>
           </div>
         </div>
-        <div class="row mt-4">
+        {{-- <div class="row mt-4">
           <div class="col-lg-12 mb-lg-0 mb-4">
             <div class="card z-index-2 h-100">
               <div class="card-header pb-0 pt-3 bg-transparent">
@@ -109,7 +109,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
        
         
       </div>

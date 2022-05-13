@@ -57,7 +57,7 @@
                             <span class="badge bg-gradient-info">Approved</span>
                         @endif
                     </td>
-                    <td align="center">{{ $rs->updated_at }}</td>
+                    <td align="center">{{ date_format($rs->updated_at,'d M Y') }} {{ date('h:i A', strtotime($rs->updated_at)) }}</td>
                     <td align="center"> 
                         <button type="button" class="btn bg-gradient-primary btn-sm" data-bs-toggle="modal" data-bs-target="#viewReservationModal2" wire:click="view({{ $rs->id }})">View</button> 
                     </td>
