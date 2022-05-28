@@ -56,7 +56,7 @@
                         <td align="center">
                             {{ $h->building->name }}
                         </td>
-                        <td align="center">
+                        <td align="left">
                             @foreach(json_decode($h->house_rules) as $tags)
                                 <span class="badge bg-primary">{{ $tags }}</span>
                             @endforeach

@@ -21,8 +21,8 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/style.default.min.css') }}">
         
-        <link rel="icon" href="https://demos.creative-tim.com/argon-design-system-pro/assets/img/apple-icon.png" type="image/png">
         <link rel="stylesheet" href="{{ asset('/assets/vendor/nouislider/distribute/nouislider.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('js/jquery-ui-1.13.1.custom/jquery-ui.min.css') }}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <link id="pagestyle" href="{{ asset('assets/css/argon-dashboard.css') }}" rel="stylesheet" />
         
@@ -45,6 +45,11 @@
               .bd-placeholder-img-lg {
                 font-size: 3.5rem;
               }
+            }
+            ui-datepicker-div {
+                font-size:70% !important;
+                position: fixed !important;
+                top: 410.975px !important;
             }
         </style>
 
@@ -100,6 +105,7 @@
         @stack('modals')
 
         <script src="{{ asset('colorlib-wizard-30/js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-ui-1.13.1.custom/jquery-ui.min.js') }}"></script>
         {{-- <script src="{{ asset('js/wizard.js') }}"></script> --}}
 
         <!-- Core -->
@@ -111,6 +117,7 @@
         <!-- Theme JS -->
         <script src="{{ asset('/assets/js/argon-dashboard.min.js') }}"></script>
         
+        @stack('js_dates')
 
         <script>
             window.addEventListener('closeModal', event => {

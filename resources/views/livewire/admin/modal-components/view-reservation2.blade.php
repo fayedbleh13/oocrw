@@ -107,13 +107,13 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="total">Total payment</label>
                                         <input type="text" value="₱ {{ $this->total }}"class="form-control" placeholder="Total payment" readonly disabled>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="status">Status</label>
                                         @if ($this->status == 1)
@@ -121,6 +121,18 @@
                                         <input type="text" value="Approved" class="form-control" placeholder="Status" readonly disabled>
                                         @endif
                                         
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="status">Number of persons</label>
+                                        <select class="form-control" id="exampleFormControlSelect2" wire:model="num_persons" readonly disabled>
+                                            <option value="">Select the number of persons</option>
+                                            <option value="0">1 person</option>
+                                            <option value="1">2 persons</option>
+                                            <option value="2">3 persons</option>
+                                            <option value="3">4 persons</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

@@ -1,11 +1,11 @@
 <div>
     <!-- Modal -->
     <div wire:ignore.self class="modal fade" id="reservationModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             
             <div class="modal-content">
                 <div class="modal-header">
-                {{-- <h5 class="modal-title" id="ModalLabel">Reservation</h5> --}}
+                <h4 class="modal-title w-100 text-center" id="ModalLabel">Reservation</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="false">&times;</span>
                 </button>
@@ -71,18 +71,31 @@
                                     Choose your check-in date and check-out date to determine your stay.
                                 </p>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="check-in">Check-in Date</label>
-                                            <input type="date" wire:model="check_in" class="form-control datepicker" placeholder="Check in" aria-label="check-in">
+                                            <input wire:model="check_in" class="form-control" id="check_in" placeholder="Check in" aria-label="check-in">
                                             @error('check_in') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="check-out">Check-out Date</label>
-                                            <input type="date" wire:model="check_out" class="form-control datepicker" placeholder="Check out" aria-label="check-out">
+                                            <input wire:model="check_out" class="form-control" id="check_out" placeholder="Check out" aria-label="check-out">
                                             @error('check_out') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="check-out">Number of persons</label>
+                                            <select class="form-control" id="exampleFormControlSelect2" wire:model="num_persons">
+                                                <option value="">Select the number of persons</option>
+                                                <option value="0">1 person</option>
+                                                <option value="1">2 persons</option>
+                                                <option value="2">3 persons</option>
+                                                <option value="3">4 persons</option>
+                                            </select>
+                                            @error('num_persons') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -295,4 +308,43 @@
 
         </div>
     </div>
+
+    @push('js_dates')
+        <?php    
+            echo "<script>
+                flatpickr('#check_in', {
+                    minDate: 'today',
+                    dateFormat: 'Y-m-d',
+                    disable: [";
+                        foreach ($reserved_dates as $rd) {
+                            echo "
+                            {
+                            from: '".$rd->check_in."',
+                            to: '".$rd->check_out."'
+                            },
+                            ";
+                        }
+                    echo "],
+                    
+                });
+
+                flatpickr('#check_out', {
+                    minDate: 'today',
+                    dateFormat: 'Y-m-d',
+                    disable: [";
+                        foreach ($reserved_dates as $rd) {
+                            echo "
+                            {
+                            from: '".$rd->check_in."',
+                            to: '".$rd->check_out."'
+                            },
+                            ";
+                        }
+                    echo "],
+                    
+                });
+                
+            </script>"; 
+        ?>
+    @endpush
 </div>

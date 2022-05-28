@@ -4,9 +4,20 @@
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         
                 <div class="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    @foreach ($category as $type)
-                        <a type="button" style="display: inline;" href="{{ route('guest.category',['category_slug' => $type->slug]) }}" class="btn bg-gradient-default" style="color: black;">{{ $type->name }}</a>
-                    @endforeach
+                    @if ($category->count() < 5)
+                        @foreach ($category->take(4) as $type)
+                            <a type="button" style="display: inline;" href="{{ route('guest.category',['category_slug' => $type->slug]) }}" class="btn bg-gradient-default" style="color: black;">{{ $type->name }}</a>
+                        @endforeach
+                    @else
+                        @foreach ($category->take(4) as $type)
+                            <a type="button" style="display: inline;" href="{{ route('guest.category',['category_slug' => $type->slug]) }}" class="btn bg-gradient-default" style="color: black;">{{ $type->name }}</a>
+                        @endforeach
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary rounded-pill btn-custom2" data-bs-toggle="modal" data-bs-target="#categoryModal">
+                            More Categories
+                        </button>
+                    @endif
+                    
                 </div>
         
                 <div class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -82,7 +93,35 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Reset changes</button>
+                <button type="button" wire:click.prevent="resetChanges()" class="btn btn-primary">Reset changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div wire:ignore.self class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Categories</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        
+                        @foreach ($category as $type)
+                            <div class="col-md-4">
+                                <a type="button" style="display: inline;" href="{{ route('guest.category',['category_slug' => $type->slug]) }}" class="btn bg-gradient-default" style="color: black;">{{ $type->name }}</a>
+                            </div>
+                            
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="/home" type="button" class="btn btn-primary">Reset changes</a>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
