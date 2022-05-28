@@ -58,6 +58,7 @@ class ReservationsTable2 extends Component
         $this->check_out = $reserve->check_out;
         $this->total = $reserve->total;
         $this->status = $reserve->status;
+        $this->num_persons = $reserve->num_persons;
     }
 
     //download function for valid id's

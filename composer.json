@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^7.4",
         "bastinald/laravel-livewire-modals": "^3.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -18,10 +18,7 @@
         "livewire-ui/modal": "^1.0",
         "livewire/livewire": "^2.5",
         "nexmo/laravel": "^3.0",
-        "power-components/livewire-powergrid": "^2.2",
-        "rappasoft/laravel-livewire-tables": "^1.24",
-        "vonage/client": "^3.0",
-        "wire-elements/modal": "^1.0"
+        "vonage/client": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

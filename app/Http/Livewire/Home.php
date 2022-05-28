@@ -20,6 +20,13 @@ class Home extends Component
         $this->max_price = 6000;
     }
 
+    public function resetChanges()
+    {
+        $this->price_sort = 'default';
+        $this->min_price = 1;
+        $this->max_price = 6000;
+    }
+
     public function render()
     {
         //price sorting

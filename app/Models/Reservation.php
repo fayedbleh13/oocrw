@@ -26,6 +26,7 @@ class Reservation extends Model
         'check_in',
         'check_out',
         'total',
+        'num_persons',
         'listings_id',
 
     ];

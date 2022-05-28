@@ -9,6 +9,7 @@ use Livewire\WithFileUploads;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Response;
 
 class ReservationWizardModal extends ModalComponent
 {
@@ -17,7 +18,7 @@ class ReservationWizardModal extends ModalComponent
 
     public $currentStep = 1;
     public $firstname, $lastname, $initials, $email, $number, $gender, 
-    $birthdate, $civil_status, $citizenship, $occupation, $check_in, $check_out;
+    $birthdate, $civil_status, $citizenship, $occupation, $check_in, $check_out, $num_persons;
     public $id_upload, $valid_id, $newFile;
     public $name, $detail, $status = 1;
     public $successMsg = '';
@@ -28,6 +29,7 @@ class ReservationWizardModal extends ModalComponent
     {
         $this->gender = 0;
         $this->civil_status = 1;
+        
     }
 
     public function firstStepSubmit()
@@ -53,7 +55,7 @@ class ReservationWizardModal extends ModalComponent
             'civil_status' => 'required',
             'citizenship' => 'required',
             'occupation' => 'required',
-            
+            'num_persons' => 'required',
         ]);
  
         $this->currentStep = 3;
@@ -85,7 +87,6 @@ class ReservationWizardModal extends ModalComponent
         $fileName = Carbon::now()->timestamp. '.' . $this->id_upload->extension();
         $this->id_upload->storeAs('img', $fileName);
         
-
         Reservation::create([
             'firstname' => $this->firstname,
             'lastname' => $this->lastname,
@@ -101,10 +102,9 @@ class ReservationWizardModal extends ModalComponent
             'check_in' => $this->check_in,
             'check_out' => $this->check_out,
             'total' => $total,
+            'num_persons' => $this->num_persons,
             'listings_id' => Session::get('id'),
         ]);
-  
-        $this->successMsg = 'Unit has been reserved successfully';
   
         $this->clearForm();
         $this->dispatchBrowserEvent('closeModal');
@@ -152,6 +152,9 @@ class ReservationWizardModal extends ModalComponent
         
         $total = $price * $days;
 
-        return view('livewire.modal-components.reservation-wizard-modal', compact('days', 'total', 'price'));
+        $reserved_dates = Reservation::where('listings_id', Session::get('id'))->get();
+
+        // dd($reserved_dates);
+        return view('livewire.modal-components.reservation-wizard-modal', compact('days', 'total', 'price', 'reserved_dates'));
     }
 }
