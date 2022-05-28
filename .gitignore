@@ -14,3 +14,5 @@ yarn-error.log
 /.idea
 /.vscode
 config/javascript.php
+READ_ME_HERE_IMPORTANT.txt
+public/js/moment/moment-with-locales.min.js
